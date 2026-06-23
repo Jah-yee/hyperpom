@@ -803,7 +803,7 @@ impl Default for Symbols {
 ///     let mut hp = HyperPom::<_, _, _>::new(config, loader, ldata, gdata)
 ///         .expect("could not create fuzzer");
 ///     // Start fuzzing!
-///     hp.fuzz().expect("an error occured while fuzzing");
+///     hp.fuzz().expect("an error occurred while fuzzing");
 /// }
 /// ```
 ///

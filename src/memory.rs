@@ -1532,8 +1532,8 @@ impl PageTableManager {
     ///
     /// This functions returns:
     ///
-    ///  * `Ok(true)` if a remapping occured because `descriptor_in_use` and `descriptor` differ.
-    ///  * `Ok(false)` if no remapping occured since the descriptors were the same.
+    ///  * `Ok(true)` if a remapping occurred because `descriptor_in_use` and `descriptor` differ.
+    ///  * `Ok(false)` if no remapping occurred since the descriptors were the same.
     ///
     /// This value is used by the data abort exception handler to decide whether it needs to retry
     /// the faulting exception after a remapping or if it should propagate the exception to the
@@ -1767,7 +1767,7 @@ impl Clone for VirtMemAllocator {
         // Retrieves the physical memory allocator from the SlabAllocator in PageTableManager.
         let pma = self.upper_table.slab.pma.clone();
         let mut vma =
-            VirtMemAllocator::new(pma).expect("error occured while cloning VirtMemAllocator");
+            VirtMemAllocator::new(pma).expect("error occurred while cloning VirtMemAllocator");
         // Iterates over each allocated page in the page table for the lower virtual address range.
         for (&addr, page) in self.lower_table.allocs.iter() {
             let page = page.borrow();

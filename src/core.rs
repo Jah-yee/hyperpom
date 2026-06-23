@@ -353,7 +353,7 @@ impl<
                         worker.run(i == 0, iterations)?;
                         Ok(())
                     })
-                    .expect("An error occured while spawning a worker thread");
+                    .expect("An error occurred while spawning a worker thread");
                 // Receives the VcpuInstance of the thread we've just created.
                 let instance = instance_rx.recv().unwrap();
                 let handle = WorkerHandle::new(handle);
@@ -392,7 +392,7 @@ impl<
                         // ... then join the thread.
                         if let Some(h) = handle.join_handle.take() {
                             h.join()
-                                .expect("An error occured while joining threads")
+                                .expect("An error occurred while joining threads")
                                 .expect("thread panicked");
                         }
                         false
@@ -444,7 +444,7 @@ impl WorkerHandle {
     }
 }
 
-/// Stores information about the number of testcases, crashes and timeouts that occured during a
+/// Stores information about the number of testcases, crashes and timeouts that occurred during a
 /// given time interval.
 ///
 /// This object is sent from worker threads back to the main one through an [`std::sync::mpsc`]
@@ -526,8 +526,8 @@ impl WorkerInfo {
 ///  * running the [`Loader::pre_exec`](crate::loader::Loader::pre_exec) hook;
 ///  * running the testcase using [`Executor::vcpu_run`];
 ///  * running the [`Loader::post_exec`](crate::loader::Loader::post_exec) hook;
-///  * checking if a crash or a timeout occured;
-///     * if a crash occured, rerun the testcase with the backtrace hooks enabled and check if the
+///  * checking if a crash or a timeout occurred;
+///     * if a crash occurred, rerun the testcase with the backtrace hooks enabled and check if the
 ///       crash is already known;
 ///     * if it's a new crash, store it;
 ///  * checking if new paths have been covered by the current testcase;
@@ -1577,7 +1577,7 @@ impl<L: Loader + Loader<LD = LD> + Loader<GD = GD>, LD: Clone, GD: Clone> Execut
             }
             let ek = self.run_inner(&mut loader)?;
             match ek {
-                // If a crash or a timeout occured, we propagate the info.
+                // If a crash or a timeout occurred, we propagate the info.
                 ExitKind::Crash(_) | ExitKind::Timeout => {
                     self.loader_copy = Some(loader);
                     return Ok(ek);

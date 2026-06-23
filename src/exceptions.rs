@@ -213,7 +213,7 @@ pub const END_ADDR: u64 = 0xdead_beef_0bad_0d0e;
 ///
 /// # Role of Exceptions in the Fuzzer
 ///
-/// Exceptions are an integral part of the fuzzer: whether it's to detect that a crash occured or
+/// Exceptions are an integral part of the fuzzer: whether it's to detect that a crash occurred or
 /// to track dirty states for virtual memory pages, we have to handle them appropriately to
 /// resume the execution or exit gracefully.
 ///
@@ -263,7 +263,7 @@ pub const END_ADDR: u64 = 0xdead_beef_0bad_0d0e;
 /// there to handle the exception, but we're actually going to propagate the exception to the
 /// hypervisor using HVC (hypervisor calls) instructions. Each entry will have an ID, from 0 to 15,
 /// that we can encode into the HVC instruction and that we can retrieve when the exception is
-/// raised to the hypervisor. This way, we'll be able to identify which exception occured at EL0 or
+/// raised to the hypervisor. This way, we'll be able to identify which exception occurred at EL0 or
 /// EL1 and handle it appropriately.
 ///
 /// ```text
@@ -333,7 +333,7 @@ impl Exceptions {
     }
 
     /// Handles exceptions raised to the hypervisor. The least significant bits of the exception
-    /// syndrome contains the ID of the original exception that occured in the guest VM.
+    /// syndrome contains the ID of the original exception that occurred in the guest VM.
     /// The corresponding handlers for each exception come from the user-defined loader.
     #[allow(clippy::single_match)]
     pub fn handle_hvc<L: Loader + Loader<LD = LD> + Loader<GD = GD>, LD: Clone, GD: Clone>(

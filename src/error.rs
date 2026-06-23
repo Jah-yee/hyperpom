@@ -125,7 +125,7 @@ pub enum CoreError {
     CorpusCrash(std::path::PathBuf),
     /// The testcase provided is invalid.
     InvalidTestcase,
-    /// An I/O error occured while processing the corpus.
+    /// An I/O error occurred while processing the corpus.
     IoError(String),
     /// Too many workers are trying to be spawned.
     TooManyWorkers(u32),
@@ -158,7 +158,7 @@ impl fmt::Display for CoreError {
 /// Crash-related errors.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum CrashError {
-    /// A format error occured.
+    /// A format error occurred.
     FmtError(std::fmt::Error),
     /// User-defined core error.
     Generic(String),
@@ -300,7 +300,7 @@ impl fmt::Display for MemoryError {
             MemoryError::InvalidSize(s) => write!(f, "invalid size: {:#x}", s),
             MemoryError::LayoutError(e) => write!(f, "layout error: {}", e),
             MemoryError::OutOfMemory => write!(f, "the allocator ran out of memory"),
-            MemoryError::Overflow(a, s) => write!(f, "an overflow occured: {:#x}, {:#x}", a, s),
+            MemoryError::Overflow(a, s) => write!(f, "an overflow occurred: {:#x}, {:#x}", a, s),
             MemoryError::UnalignedAddress(a) => write!(f, "unaligned address: ({:#x})", a),
             MemoryError::UnalignedSize(s) => write!(f, "unaligned size: ({:#x})", s),
             MemoryError::UnallocatedMemoryAccess(x) => {

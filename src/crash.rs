@@ -1,4 +1,4 @@
-//! Methods to create crash files after a crash or a timeout occured.
+//! Methods to create crash files after a crash or a timeout occurred.
 
 use std::fs;
 use std::io::Write as IoWrite;
@@ -15,12 +15,12 @@ use crate::utils::*;
 /// Represents the type of exit can be returned after the execution of a testcase.
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
 pub enum ExitKind {
-    /// Resumes the execution after an exception occured and was handled.
+    /// Resumes the execution after an exception occurred and was handled.
     Continue,
     /// The execution continues, but we signaled that we returned early from the function
     /// (kind of a hack to update the backtrace even if we didn't execute the return instruction).
     EarlyFunctionReturn,
-    /// An exception occured and resulted in a crash. Stores the title of the crash report.
+    /// An exception occurred and resulted in a crash. Stores the title of the crash report.
     Crash(String),
     /// The execution timed out.
     Timeout,
